@@ -8,8 +8,8 @@ public class Program
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(WebBuilder =>
+            .ConfigureWebHostDefaults(webBuilder =>
             {
-                WebBuilder.UseStartup<Startup>();
+                webBuilder.UseStartup<Startup>();
             });
 }

@@ -5,7 +5,7 @@
 namespace PrimeiroProjeto_MVC.Migrations
 {
     /// <inheritdoc />
-    public partial class Teste : Migration
+    public partial class MigracaoInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,8 +16,8 @@ namespace PrimeiroProjeto_MVC.Migrations
                 {
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoriaNome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Descricao = table.Column<int>(type: "int", nullable: false)
+                    CategoriaNome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Descricao = table.Column<int>(type: "int", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,12 +30,12 @@ namespace PrimeiroProjeto_MVC.Migrations
                 {
                     LancheId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeLanche = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DescricaoCurta = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DescricaoDetalhada = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ImagemUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImagemThumbnailUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NomeLanche = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DescricaoCurta = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DescricaoDetalhada = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Preco = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    ImagemUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    ImagemThumbnailUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     IsLanchePreferido = table.Column<bool>(type: "bit", nullable: false),
                     EmEstoque = table.Column<bool>(type: "bit", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false)

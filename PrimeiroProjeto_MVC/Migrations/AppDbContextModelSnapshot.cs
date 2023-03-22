@@ -30,9 +30,12 @@ namespace PrimeiroProjeto_MVC.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoriaId"));
 
                     b.Property<string>("CategoriaNome")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Descricao")
+                        .HasMaxLength(200)
                         .HasColumnType("int");
 
                     b.HasKey("CategoriaId");
@@ -52,28 +55,36 @@ namespace PrimeiroProjeto_MVC.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("DescricaoCurta")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("DescricaoDetalhada")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("EmEstoque")
                         .HasColumnType("bit");
 
                     b.Property<string>("ImagemThumbnailUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ImagemUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("IsLanchePreferido")
                         .HasColumnType("bit");
 
                     b.Property<string>("NomeLanche")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Preco")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("LancheId");
 
