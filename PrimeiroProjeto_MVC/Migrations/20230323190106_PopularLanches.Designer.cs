@@ -11,8 +11,8 @@ using PrimeiroProjeto_MVC.Context;
 namespace PrimeiroProjeto_MVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230322183228_MigracaoInicial")]
-    partial class MigracaoInicial
+    [Migration("20230323190106_PopularLanches")]
+    partial class PopularLanches
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,9 +37,10 @@ namespace PrimeiroProjeto_MVC.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Descricao")
+                    b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("CategoriaId");
 

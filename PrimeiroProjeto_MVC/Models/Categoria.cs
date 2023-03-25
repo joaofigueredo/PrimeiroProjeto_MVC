@@ -15,7 +15,7 @@ namespace PrimeiroProjeto_MVC.Models
         [StringLength(200, ErrorMessage = "Tamanho maximo é 200 caracteres")]
         [Required(ErrorMessage = "Informe a descrição da categoria")]
         [Display(Name = "Descrição")]
-        public int Descricao { get; set; }
+        public string Descricao { get; set; }
 
         public List<Lanche> Lanches { get; set; }
     }

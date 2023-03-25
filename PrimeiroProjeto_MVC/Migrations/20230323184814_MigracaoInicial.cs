@@ -17,7 +17,7 @@ namespace PrimeiroProjeto_MVC.Migrations
                     CategoriaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoriaNome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Descricao = table.Column<int>(type: "int", maxLength: 200, nullable: false)
+                    Descricao = table.Column<string>(type: "nvarchar(100)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
