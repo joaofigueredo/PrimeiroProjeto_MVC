@@ -1,5 +1,7 @@
 ﻿using PrimeiroProjeto_MVC.Context;
 using Microsoft.EntityFrameworkCore;
+using PrimeiroProjeto_MVC.Repositories;
+using PrimeiroProjeto_MVC.Repositories.Interfaces;
 
 namespace PrimeiroProjeto_MVC;
 
@@ -17,6 +19,9 @@ public class Startup
     {
         services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+        services.AddTransient<ILancheRepository, LancheRepository>();
+        services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
         services.AddControllersWithViews();
     }
