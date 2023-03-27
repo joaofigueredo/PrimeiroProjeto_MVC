@@ -1,10 +1,18 @@
-﻿@model IEnumerable<PrimeiroProjeto_MVC.Models.Lanche>
+﻿@model LancheListViewModel
 
-<div> <h2>Todos os Lanches</h2> </div>
-@foreach (var lanche in Model) {
-        <div>
-            <h4>Lanche : @lanche.NomeLanche</h4>
-            <p><img style="height:255px; width:380px;" src="@lanche.ImagemUrl" /></p>
-            <p>Preço : @lanche.Preco.ToString("c")</p>
-        </div>
-}
+<div>
+    <h2 style="text-align:center; font-size: 2.5em; font-family:Arial, Helvetica, sans-serif;">@Model.CategoriaAtual</h2> 
+</div>
+<hr />
+<div class="container">
+    <div class="row">
+        @foreach (var lanche in Model.Lanches) {
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <p><img style="height:255px; width:380px;" src="@lanche.ImagemUrl" class="img-fluid"/></p>
+                <h3>Preço: @lanche.Preco.ToString("c")</h3>
+                <h4>@lanche.NomeLanche</h4>
+                <p>@lanche.DescricaoCurta</p>
+            </div>
+        }
+    </div>
+</div>

@@ -10,6 +10,7 @@ namespace PrimeiroProjeto_MVC.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
         public IActionResult Demo()
