@@ -1,7 +1,8 @@
 ﻿using PrimeiroProjeto_MVC.Context;
-using Microsoft.EntityFrameworkCore;
+using PrimeiroProjeto_MVC.Models;
 using PrimeiroProjeto_MVC.Repositories;
 using PrimeiroProjeto_MVC.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace PrimeiroProjeto_MVC;
 
@@ -18,12 +19,16 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
         services.AddTransient<ILancheRepository, LancheRepository>();
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         services.AddControllersWithViews();
+
+        services.AddMemoryCache();
+        services.AddSession();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,8 +48,9 @@ public class Startup
 
         app.UseStaticFiles();
         app.UseRouting();
-        app.UseAuthorization();
+        app.UseSession();
 
+        app.UseAuthorization();
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(

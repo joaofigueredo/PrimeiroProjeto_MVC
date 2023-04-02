@@ -1,7 +1,8 @@
 ﻿using PrimeiroProjeto_MVC.Context;
 using PrimeiroProjeto_MVC.Models;
+using PrimeiroProjeto_MVC.Repositories.Interfaces;
 
-namespace PrimeiroProjeto_MVC.Repositories.Interfaces
+namespace PrimeiroProjeto_MVC.Repositories
 
 {
     public class CategoriaRepository : ICategoriaRepository
