@@ -25,8 +25,10 @@ namespace PrimeiroProjeto_MVC.Controllers
                 lanches = _lancheRepository.Lanches.OrderBy(l => l.LancheId);
                 categoriaAtual = "Todos os lanches";
             }
+            
             else
             {
+                /*
                 if(string.Equals("Normal", categoria, StringComparison.OrdinalIgnoreCase))
                 {
                     lanches = _lancheRepository.Lanches
@@ -38,7 +40,11 @@ namespace PrimeiroProjeto_MVC.Controllers
                     lanches = _lancheRepository.Lanches
                             .Where(l => l.Categoria.CategoriaNome.Equals("Natural"))
                             .OrderBy(l => l.NomeLanche);
-                }
+                }*/
+
+                lanches = _lancheRepository.Lanches
+                            .Where(l => l.Categoria.CategoriaNome.Equals(categoria))
+                            .OrderBy(c => c.NomeLanche);
                 categoriaAtual = categoria;
             }
 
@@ -49,6 +55,12 @@ namespace PrimeiroProjeto_MVC.Controllers
             };
 
             return View(lanchesListViewModel);
+        }
+
+        public IActionResult Details(int lancheId) 
+        {
+            var lanche =  _lancheRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
+            return View(lanche);
         }
     }
 }

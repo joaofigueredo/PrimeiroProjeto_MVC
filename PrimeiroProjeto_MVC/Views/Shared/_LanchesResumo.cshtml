@@ -4,5 +4,16 @@
     <p><img style="height:255px; width:380px;" src="@Model.ImagemUrl" class="img-fluid"/></p>
     <h3>Preço: @Model.Preco.ToString("c")</h3>
     <h4>@Model.NomeLanche</h4>
+    <a asp-controller="lanche" asp-action="Details"
+    asp-route-lancheId="@Model.LancheId">@Model.NomeLanche </a>
     <p>@Model.DescricaoCurta</p>
+
+    <div>
+        <p class="button">
+            <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra"
+            asp-action="AdicionarItemNoCarrinhoCompra" asp-route-LancheId="@Model.LancheId">
+                Incluir no Carrinho
+            </a>
+        </p>
+    </div>
 </div>
