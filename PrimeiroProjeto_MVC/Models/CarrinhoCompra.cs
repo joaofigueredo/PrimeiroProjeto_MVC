@@ -97,6 +97,9 @@ namespace PrimeiroProjeto_MVC.Models
             var carrinhoItens = _context.CarrinhoCompraItens
                                 .Where(carrinho => carrinho.CarrinhoCompraId == CarrinhoCompraId);
             _context.CarrinhoCompraItens.RemoveRange(carrinhoItens);
+
+            _context.CarrinhoCompraItens.RemoveRange(carrinhoItens);
+            _context.SaveChanges();
         }
 
         public decimal GetCarrinhoCompraTotal()
